@@ -1,7 +1,10 @@
 import * as Yup from "yup";
 
 export const SCHEMA_EMAIL = Yup.string("Must be string")
-  .email("Invalid email")
+.matches(
+    /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/,
+    "Invalid email"
+  )
   .required("Must be required");
 
 export const SCHEMA_PASSWORD = Yup.string("Must be string")
@@ -16,7 +19,7 @@ export const SCHEMA_NAME = Yup.string("Must be string")
   .required("Must be required");
 
 export const SCHEMA_LOGIN = Yup.object({
-  login: SCHEMA_EMAIL,
+  email: SCHEMA_EMAIL,
   password: SCHEMA_PASSWORD,
 });
 

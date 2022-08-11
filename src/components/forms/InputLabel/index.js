@@ -1,5 +1,5 @@
-import { ErrorMessage, Field } from "formik";
 import React from "react";
+import { Field, ErrorMessage } from "formik";
 import cx from "classnames";
 import styles from "./InputLabel.module.scss";
 

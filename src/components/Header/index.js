@@ -13,7 +13,6 @@ const Header = () => {
       ) : (
         <Link to="/login">Login</Link>
       )}
-      <h1>home</h1>
     </header>
   );
 };

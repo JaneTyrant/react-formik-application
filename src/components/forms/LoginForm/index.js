@@ -1,23 +1,31 @@
-import { Form, Formik } from "formik";
 import React from "react";
+import { Formik, Form } from "formik";
+import { onSubmit } from "../../../utils/onSubmit";
 import { SCHEMA_LOGIN } from "../../../utils/validateSchemas";
 import InputLabel from "../InputLabel";
 
 const initialValues = {
-  login: "",
+  email: "",
+  password: "",
 };
 
-const LoginForm = (props) => {
+const LoginForm = () => {
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={props.onSubmit}
+      onSubmit={onSubmit}
       validationSchema={SCHEMA_LOGIN}
     >
-      {(formikProps) => {
+      {() => {
         return (
           <Form>
-            <InputLabel name="login" type="text" placeholder="login" />
+            <InputLabel name="email" type="text" placeholder="Email adress" />
+            <InputLabel
+              name="password"
+              type="password"
+              placeholder="password"
+            />
+            <input type="submit" value="login" />
           </Form>
         );
       }}

@@ -3,6 +3,7 @@ import { Formik, Form } from "formik";
 import { onSubmit } from "../../../utils/onSubmit";
 import { SCHEMA_LOGIN } from "../../../utils/validateSchemas";
 import InputLabel from "../InputLabel";
+import styles from "../Forms.module.scss"
 
 const initialValues = {
   email: "",
@@ -19,8 +20,8 @@ const LoginForm = () => {
       {() => {
         return (
           <Form>
-            <InputLabel name="email" type="text" placeholder="Email adress" />
-            <InputLabel
+            <InputLabel className={styles.input} name="email" type="text" placeholder="Email adress" />
+            <InputLabel className={styles.input}
               name="password"
               type="password"
               placeholder="password"

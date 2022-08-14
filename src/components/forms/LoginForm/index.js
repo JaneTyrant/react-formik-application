@@ -1,9 +1,8 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import { onSubmit } from "../../../utils/onSubmit";
+import { onSubmit } from "../../../utils/utils";
 import { SCHEMA_LOGIN } from "../../../utils/validateSchemas";
 import InputLabel from "../InputLabel";
-import styles from "../Forms.module.scss"
 
 const initialValues = {
   email: "",
@@ -20,13 +19,24 @@ const LoginForm = () => {
       {() => {
         return (
           <Form>
-            <InputLabel className={styles.input} name="email" type="text" placeholder="Email adress" />
-            <InputLabel className={styles.input}
+            <InputLabel
+              name="email"
+              type="text"
+              placeholder="Email adress"
+              inputClass={["input-width"]}
+            />
+            <InputLabel
               name="password"
               type="password"
               placeholder="password"
+              inputClass={["input-width"]}
             />
-            <input type="submit" value="login" />
+            <InputLabel
+              name="submit"
+              type="submit"
+              value="login"
+              inputClass={["submit", "login-submit"]}
+            />
           </Form>
         );
       }}

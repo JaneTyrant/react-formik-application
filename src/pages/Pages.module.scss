@@ -1,4 +1,36 @@
-.heading {
-    text-transform: uppercase;
-    text-align: center;
+.section {
+    max-width: 567px;
+    margin: auto;
+
+  .container {
+    margin-top: 5rem;
+    margin-left: 1rem;
+
+    .heading {
+      padding-right: 1rem;
+      margin-top: 1.1rem;
+      margin-bottom: 0.5rem;
+
+      font-size: 2.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .sub-heading {
+      width: 81%;
+      padding-right: 1rem;
+      margin: auto;
+      margin-top: 0.6rem;
+      margin-bottom: 0.7rem;
+
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.5em;
+    }
+
+    .heading,
+    .sub-heading {
+      text-align: center;
+    }
+  }
 }

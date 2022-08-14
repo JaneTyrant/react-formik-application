@@ -4,9 +4,11 @@ import styles from "./Pages.module.scss";
 
 const LoginPage = () => {
   return (
-    <section>
-      <h1 className={styles.heading}>login to your account</h1>
-      <LoginForm />
+    <section className={styles.section}>
+      <div className={styles.container}>
+        <h1 className={styles.heading}>login to your account</h1>
+        <LoginForm />
+      </div>
     </section>
   );
 };

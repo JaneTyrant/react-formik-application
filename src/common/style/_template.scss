@@ -1,0 +1,14 @@
+%error {
+  position: absolute;
+
+  padding: 1px;
+
+  background-color: #ffe4c4;
+  color: $error-color;
+
+  font-size: .9rem;
+}
+
+%capitalize {
+  text-transform: capitalize;
+}

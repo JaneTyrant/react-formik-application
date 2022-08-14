@@ -1,21 +1,16 @@
 import * as Yup from "yup";
 
 export const SCHEMA_EMAIL = Yup.string("Must be string")
-.matches(
-    /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/,
-    "Invalid email"
-  )
+  .matches(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/, "Invalid email")
   .required("Must be required");
 
-export const SCHEMA_PASSWORD = Yup.string("Must be string")
-  .matches(
-    /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,32}$/,
-    "Invalid password"
-  )
-  .required("Must be required");
+export const SCHEMA_PASSWORD = Yup.string("Must be string").matches(
+  /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,32}$/,
+  "Invalid password"
+).required("Must be required");
 
 export const SCHEMA_NAME = Yup.string("Must be string")
-  .matches(/^[A-Z][a-z]{1,16}$/, "Invalid string")
+  .matches(/^[A-Z][a-z]{1,16}$/, "Invalid name")
   .required("Must be required");
 
 export const SCHEMA_LOGIN = Yup.object({
@@ -29,7 +24,11 @@ export const SCHEMA_SIGN_UP = Yup.object({
   dname: SCHEMA_NAME,
   email: SCHEMA_EMAIL,
   password: SCHEMA_PASSWORD,
-  confirm: Yup.string().oneOf([Yup.ref("password")], "Password not equal"),
-  buyer: Yup.boolean().required("Must be required"),
-  seller: Yup.boolean().required("Must be required"),
+  confirm: SCHEMA_PASSWORD.oneOf(
+    [Yup.ref("password")],
+    "Password must match"
+  ).required("Please retype your password"),
+  picked: Yup.string()
+    .oneOf(["one", "two"], "Error")
+    .required("Choose one of two"),
 });

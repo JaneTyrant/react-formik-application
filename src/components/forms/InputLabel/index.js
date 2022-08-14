@@ -4,19 +4,24 @@ import cx from "classnames";
 import styles from "./InputLabel.module.scss";
 
 const InputLabel = (props) => {
-  const { name, ...restProps } = props;
+  const { name, inputClass = [], ...restProps } = props;
   return (
-    <label>
-    <Field name={name}>
-      {({ field, form, meta }) => {
-        const inputClasses = cx(styles.input,  {
-          [styles.invalid] : meta.error && meta.touched
-        })
-        return <input {...field} className={inputClasses} {...restProps}/>;
-      }}
-    </Field>
-    <ErrorMessage name={name} component="div" className={styles.error} />
-  </label>
+    <label className={styles.label}>
+      <Field name={name}>
+        {({ field, form, meta }) => {
+          const inputClasses = cx(
+            styles.input,
+            inputClass.map((className) => styles[className]),
+            {
+              [styles.invalid]: meta.error && meta.touched,
+              [styles.valid]: !meta.error && meta.value,
+            },
+          );
+          return <input {...field} className={inputClasses} {...restProps} />;
+        }}
+      </Field>
+      <ErrorMessage name={name} component="span" className={styles.error} />
+    </label>
   );
 };
 

@@ -1,0 +1,51 @@
+@use "../../../common/style/colors" as *;
+@import "../../../common/style/template";
+
+.radio-container {
+  min-width: 285px;
+  border: 1px solid $text-color;
+  margin: .8rem 0;
+  margin-right: 1rem;
+
+  &:hover {
+    background-color: #69bcf7;
+  }
+
+  .radio-label {
+    position: relative;
+
+    .radio-input-container {
+      padding: .5rem .7rem 1.3rem;
+
+      .input {
+        margin-right: .7rem;
+
+        vertical-align: top;
+      }
+
+      .content-container {
+        display: inline-block;
+
+        .radio-info {
+          display: inline;
+
+          font-size: 1.1rem;
+        }
+
+        .radio-description {
+          display: block;
+          margin-top: 0.5rem;
+
+          font-size: .6rem;
+        }
+      }
+    }
+
+    .error {
+      @extend %error;
+
+      bottom: 3px;
+      left: 5px;
+    }
+  }
+}
